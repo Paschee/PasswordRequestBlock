@@ -6,9 +6,8 @@
 - c# : using.Microsoft.Win32 -> C ?
 - Lock screen
 - Windows herunterfahren bzw. re-booten (Ist in C# vorhanden)
-- 
 - Lock : Tab, Alt, Del, F4
-- Hide : SetFormBorderStyle = None , ShowInTaskbar = false
+- Hide : SetFormBorderStyle = None , ShowInTaskbar = false , weitere ...
 
 "Passwort"
 
