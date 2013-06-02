@@ -51,10 +51,10 @@ public class SomePasswordTest extends JFrame {
 		
 		Speichern.addActionListener(new ActionListener() {
 
-	        public void actionPerformed(ActionEvent e) {
-	            Safe();
-	        }
-	    });
+	        	public void actionPerformed(ActionEvent e) {
+	            		Safe();
+	        	}
+	    	});
 	 
 		Klartext.addActionListener(new ActionListener() {
 			
