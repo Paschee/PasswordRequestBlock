@@ -1,5 +1,4 @@
 ```bash
-Höchstwahrscheinlich in C++
 
 "Allgemeine Windowsdinge"
 
@@ -8,6 +7,11 @@ Höchstwahrscheinlich in C++
 - Windows herunterfahren bzw. re-booten (Ist in C# vorhanden), wirds in C++ sicher auch geben
 - Lock : Tab, Alt, Del, F4
 - Hide : SetFormBorderStyle = None , ShowInTaskbar = false , weitere ...
+
+"OS"
+
+- Wenn möglich sollte es unter Win7 und ubuntu (12.04) funktionieren
+- Für ubuntu muss ich noch schauen was ich genau brauche (zwecks PC boot)
 
 "Passwort"
 
@@ -24,5 +28,9 @@ Höchstwahrscheinlich in C++
 
 - Jeff das cracken so schwer wie möglich machen ! Wie ? Keine ahnung. :-)
 
+"Programmierumgebung"
+
+- RAD Studio
+- Sprache: C++
 
 ```
