@@ -3,9 +3,9 @@ Höchstwahrscheinlich in C++
 
 "Allgemeine Windowsdinge"
 
-- c# : using.Microsoft.Win32 -> C ? // Hat sich erledigt
+- c# : using.Microsoft.Win32 -> C ? Wirds so auch in C++ geben
 - Lock screen
-- Windows herunterfahren bzw. re-booten (Ist in C# vorhanden) // wirds in C++ sicher auch geben
+- Windows herunterfahren bzw. re-booten (Ist in C# vorhanden), wirds in C++ sicher auch geben
 - Lock : Tab, Alt, Del, F4
 - Hide : SetFormBorderStyle = None , ShowInTaskbar = false , weitere ...
 
@@ -22,7 +22,7 @@ Höchstwahrscheinlich in C++
 
 "Sicherheitsmechanismen"
 
-- Jeff das cracken so schwer wie möglich machen ! Wie ? Keine ahnung. // :-)
+- Jeff das cracken so schwer wie möglich machen ! Wie ? Keine ahnung. :-)
 
 
 ```
