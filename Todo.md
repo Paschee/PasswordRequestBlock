@@ -1,5 +1,11 @@
 ```bash
 
+"Allgemeines"#
+
+- die UR-Version wird wohl vorerst nur Konsolenbasiert sein.
+- Oberfläche könnte entsprechend nachgereicht werden.
+- Wenn Oberfläche, dann schlicht (2 x Edit, Evtl. zeitanzeige und Button zum Entern oder Runterfahren)
+
 "OS"
 
 - using.Microsoft.Win32 -> C ? Wirds so auch in C++ geben
