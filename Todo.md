@@ -1,6 +1,6 @@
 ```bash
 
-"Allgemeines"#
+"Allgemeines"
 
 - die UR-Version wird wohl vorerst nur Konsolenbasiert sein.
 - Oberfläche könnte entsprechend nachgereicht werden.
