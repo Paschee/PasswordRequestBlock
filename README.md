@@ -8,7 +8,9 @@ um das umgehen der abfrage so weit wie möglich zu unterbinden. Bei erstmaligem 
 Abfrage in Bezug auf das gewünschte Passwort durchgeführt. Das Passwort wird in einer für den Nutzer
 nicht sichtbaren Datei abgelegt, um dem löschen oder ändern des Keys vorzubeugen.
 
-Geplant in : C / C++
+Geplant in : C++ als Konsolenanwendung
+
+-------------------------------------------------------------------------------------------------------------------
 
 Das Projekt wird für den folgenden Zeitraum angesetzt :
 Start    : 24.Juni.2013
