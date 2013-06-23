@@ -10,7 +10,7 @@ nicht sichtbaren Datei abgelegt, um dem löschen oder ändern des Keys vorzubeug
 
 Geplant in : C++ als Konsolenanwendung
 
-----------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 
 Das Projekt wird für den folgenden Zeitraum angesetzt :
 Start    : 24.Juni.2013
