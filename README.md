@@ -1,4 +1,4 @@
-Password request block
+Password Request Block
 ----------------------
 
 ```bash
@@ -10,5 +10,11 @@ nicht sichtbaren Datei abgelegt, um dem löschen oder ändern des Keys vorzubeug
 
 Geplant in : C / C++
 
-Weitere Information Folgen ...
+Das Projekt wird für den folgenden Zeitraum angesetzt :
+Start    : 24.Juni.2013
+Deadline : 15.Juli.2013
+
+
+
+P.-
 ```
