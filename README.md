@@ -26,4 +26,6 @@ Fortschritt
 ```bash
 Tag 1: • GUI inkl. Tab Struktur
        • Shutdown, Reboot
+       • Vorbereitungen für kommende Funktionen
+       • WindowState Maximized (1.Umgehungsschutz)
 ```
