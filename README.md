@@ -24,5 +24,6 @@ Fortschritt
 ---
 
 ```bash
-Tag 1:
+Tag 1: • GUI
+       • 
 ```
