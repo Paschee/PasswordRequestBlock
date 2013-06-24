@@ -24,7 +24,6 @@ Fortschritt
 ---
 
 ```bash
-Tag 1: • GUI
+Tag 1: • GUI inkl. Tab Struktur
        • Shutdown, Reboot
-       • 
 ```
