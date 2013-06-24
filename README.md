@@ -25,5 +25,6 @@ Fortschritt
 
 ```bash
 Tag 1: • GUI
+       • Shutdown, Reboot
        • 
 ```
