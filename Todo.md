@@ -25,7 +25,7 @@
 - Passwort eingabe "IMMER" mit sonderzeichen überdecken
 - Passwortlaengenmin = 4 , Passwortlaengenmax = 128
 - Passwortbeschränkungen !
-- Passwortpflichtzeichen: Buchstaben(A-Z / Ä,Ö,Ü,ß) , Zahlen (1-9), Sonderzeichen (!, $, ... , ?)
+- Passwortpflichtzeichen: Buchstaben(A-Z / Ä,Ö,Ü,ß) , Zahlen (1-9), Sonderzeichen (!, $, ... , ?) | entfällt da unnötig.
 - beim 1. nutzen Datei erstellen (Abfrage im Programm ob vorhanden, sonst neue erstellen)
 - Ordner mit Datei verstecken (Hide File) -> Beugt dem versuch es zu loeschen vor
 - SetFileAttributes und FLAG setzen bei FILE_ATTRIBUTE_HIDDEN
