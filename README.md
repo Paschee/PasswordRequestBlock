@@ -29,5 +29,8 @@ Tag 1: • GUI inkl. Tab Struktur
        • Vorbereitungen für kommende Funktionen
        • WindowState Maximized (1.Umgehungsschutz)
 
-Tag 2: •
+Tag 2: • Pseudo Konsole gefixed.
+       • 
+
+
 ```
