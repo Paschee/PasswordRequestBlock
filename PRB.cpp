@@ -2,7 +2,11 @@
 
 #include <vcl.h>
 #include <windows.h>
+#include <string>
+#include <fstream>
+#include <iostream>
 #pragma hdrstop
+using namespace std;
 
 #include "PRB.h"
 //---------------------------------------------------------------------------
@@ -11,7 +15,7 @@
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
-  : TForm(Owner)
+	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
@@ -19,6 +23,9 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 {
 	Form1->BorderStyle = None;
 	WindowState = wsMaximized;
+	Memo1->Text = "";
+	MaskEdit1->Text = "••••";
+	MaskEdit2->Text = "••••";
 
 }
 //---------------------------------------------------------------------------
@@ -30,7 +37,9 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 	/*Reboot*/
-	system("system -r");
+	system("system -r -5");
+	Memo1->Lines->Append(">> Windows will reboot in 5 seconds.");
+
 }
 //---------------------------------------------------------------------------
 
@@ -38,14 +47,31 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 {
 	/*Shutdown*/
 	system("system -s");
+	Memo1->Lines->Append(">> Windows will shudtown in 5 seconds.");
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-	if (Edit1->Text == Edit2->Text && Edit1->Text.Length() >= 4 && Edit2->Text.Length() >= 4)
+	String PasswordCreateA;
+	String i = "Alla";
+
+	/*Characterdetection*/
+	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
 	{
-		/*Platzhalter*/
-		exit(1);
+		PasswordCreateA = MaskEdit1->Text;
+		TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
+		Speichern->WriteLine(MaskEdit1->Text);
+		Speichern->Close();
+
+
+		Memo1->Lines->Append("File was safed succesfully");
+		Memo1->Lines->Append(">> You can now try to Log in !");
+		ShowMessage("Password committed succesfully!");
+		// exit(1);
+	}
+	else
+	{
+		ShowMessage("Illegal input - Follow these rules\n\n  • Minimum of 4 characters\n  • Maximum of 128 characters\n  • Characters are not specified ");
 	}
 }
 //---------------------------------------------------------------------------
@@ -58,5 +84,25 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 {
 	/*Wenn PW mit gehashtem PW Übereinstimmt, tritt ein.*/
 	exit(1);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Memo1Change(TObject *Sender)
+{
+	/*Later*/
+	Memo1->ReadOnly = true;
+
+}
+//-------------------------------------------------------------------------
+
+
+void __fastcall TForm1::MaskEdit1Change(TObject *Sender)
+{
+	MaskEdit1->PasswordChar = "•";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
+{
+	MaskEdit2->PasswordChar = "•";
 }
 //---------------------------------------------------------------------------
