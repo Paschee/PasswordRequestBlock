@@ -52,8 +52,7 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-	String PasswordCreateA;
-	String i = "Alla";
+	String PasswordCreateA, PasswordCreateB;
 
 	/*Characterdetection*/
 	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
@@ -63,15 +62,16 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		Speichern->WriteLine(MaskEdit1->Text);
 		Speichern->Close();
 
-
-		Memo1->Lines->Append("File was safed succesfully");
+		Memo1->Lines->Append("File was safed and created succesfully");
 		Memo1->Lines->Append(">> You can now try to Log in !");
 		ShowMessage("Password committed succesfully!");
-		// exit(1);
+
 	}
 	else
 	{
-		ShowMessage("Illegal input - Follow these rules\n\n  • Minimum of 4 characters\n  • Maximum of 128 characters\n  • Characters are not specified ");
+		Memo1->Lines->Append("Creating failed.");
+		Memo1->Lines->Append(">> Click OK and repeat.");
+		ShowMessage("Creating the Password has failed - What was the problem ?\n\n  • Less than 4 characters\n  • More than 128 characters\n  • The 2nd Password isn't the same as the 1st\n  • Look out for big and small characters ");
 	}
 }
 //---------------------------------------------------------------------------
@@ -97,12 +97,12 @@ void __fastcall TForm1::Memo1Change(TObject *Sender)
 
 void __fastcall TForm1::MaskEdit1Change(TObject *Sender)
 {
-	MaskEdit1->PasswordChar = "•";
+	MaskEdit1->MaxLength = 128;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
 {
-	MaskEdit2->PasswordChar = "•";
+	MaskEdit2->MaxLength = 128;
 }
 //---------------------------------------------------------------------------
