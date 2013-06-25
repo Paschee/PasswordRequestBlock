@@ -55,7 +55,8 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	String PasswordCreateA, PasswordCreateB;
 
 	/*Characterdetection*/
-	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
+	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4
+	    && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
 	{
 		PasswordCreateA = MaskEdit1->Text;
 		TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
@@ -65,7 +66,6 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		Memo1->Lines->Append("File was safed and created succesfully");
 		Memo1->Lines->Append(">> You can now try to Log in !");
 		ShowMessage("Password committed succesfully!");
-
 	}
 	else
 	{
