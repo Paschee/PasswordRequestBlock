@@ -30,6 +30,7 @@ Tag 1: • GUI inkl. Tab Struktur
        • WindowState Maximized (1.Umgehungsschutz)
 
 Tag 2: • Pseudo Konsole gefixed
+       • Password Speichern
        • 
 
 
