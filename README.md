@@ -34,7 +34,10 @@ Tag 2: • Pseudo Konsole gefixed, Scrollbar angefügt
        • Passwortbeschränkungen
        • Verschlüsselte Eingabe
 
-Tag 3: •
+Tag 3: • Speicherung geändert
+       • File Attributes
+       • Log in gestartet
+       •
 
 
 ```
