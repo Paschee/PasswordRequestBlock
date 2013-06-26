@@ -37,6 +37,7 @@ Tag 2: • Pseudo Konsole gefixed, Scrollbar angefügt
 Tag 3: • Speicherung geändert
        • File Attributes
        • Log in gestartet
+       • Passwort konnte nicht überschrieben werden *fixed
        •
 
 
