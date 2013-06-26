@@ -77,8 +77,11 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		Speichern->WriteLine(MaskEdit1->Text);
 		Speichern->Close();
 
+		/*File attributes*/
+		FileSetAttr("Password.txt", faHidden);
 		FileSetAttr("Password.txt", faHidden);
 
+		/*Pseudo cmd*/
 		Memo1->Lines->Append("File was safed and created succesfully");
 		Memo1->Lines->Append(">> You can now try to Log in !");
 		ShowMessage("Password committed succesfully!");
@@ -105,7 +108,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	{
 		Memo1->Lines->Append("You've not entered any password.");
 		Memo1->Lines->Append(">> Please try again.");
-		ShowMessage("Error !");
+		ShowMessage("Error ! \n\n  • Empty Field");
 	}
 	/* Hier kommt was rein*/
 
