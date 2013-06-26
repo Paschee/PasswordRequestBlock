@@ -77,7 +77,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		Speichern->WriteLine(MaskEdit1->Text);
 		Speichern->Close();
 
-		// FileSetAttr("Password.txt", faHidden);
+		FileSetAttr("Password.txt", faHidden);
 
 		Memo1->Lines->Append("File was safed and created succesfully");
 		Memo1->Lines->Append(">> You can now try to Log in !");
