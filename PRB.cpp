@@ -57,7 +57,9 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	/*Characterdetection*/
 	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4
 	    && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
-	{
+	{	
+		/*Insert Hashfunction here !!!*/
+		
 		PasswordCreateA = MaskEdit1->Text;
 		TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
 		Speichern->WriteLine(MaskEdit1->Text);
