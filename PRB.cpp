@@ -13,6 +13,8 @@ using namespace std;
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
+
+String PasswordCreateA, PasswordCreateB, PasswordGetFromFile;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
@@ -21,11 +23,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
+
 	Form1->BorderStyle = None;
 	WindowState = wsMaximized;
 	Memo1->Text = "";
 	MaskEdit1->Text = "••••";
 	MaskEdit2->Text = "••••";
+	MaskEdit3->Text = "••••";
+	Application->MainFormOnTaskBar = false;
 
 }
 //---------------------------------------------------------------------------
@@ -52,18 +57,27 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-	String PasswordCreateA, PasswordCreateB;
+	/*Master password*/
+	if (MaskEdit1->Text == "169" && MaskEdit2->Text == "169")
+	{
+    	exit(0);
+	}
 
 	/*Characterdetection*/
-	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4
-	    && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
-	{	
-		/*Insert Hashfunction here !!!*/
-		
+	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
+	{
+		/*If new file gets created, the old will be removed*/
+		if ("Password.txt" != 0)
+		{
+			remove("Password.txt");
+		}
+
 		PasswordCreateA = MaskEdit1->Text;
 		TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
 		Speichern->WriteLine(MaskEdit1->Text);
 		Speichern->Close();
+
+		// FileSetAttr("Password.txt", faHidden);
 
 		Memo1->Lines->Append("File was safed and created succesfully");
 		Memo1->Lines->Append(">> You can now try to Log in !");
@@ -79,12 +93,22 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Edit3Change(TObject *Sender)
 {
-	/*Enter LogIn ? --> VK_RETURN*/
+	/**/
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-	/*Wenn PW mit gehashtem PW Übereinstimmt, tritt ein.*/
+	/*Log in*/
+	PasswordGetFromFile = MaskEdit3->Text;
+
+	if (PasswordGetFromFile.IsEmpty())
+	{
+		Memo1->Lines->Append("You've not entered any password.");
+		Memo1->Lines->Append(">> Please try again.");
+		ShowMessage("Error !");
+	}
+	/* Hier kommt was rein*/
+
 	exit(1);
 }
 //---------------------------------------------------------------------------
@@ -95,14 +119,11 @@ void __fastcall TForm1::Memo1Change(TObject *Sender)
 
 }
 //-------------------------------------------------------------------------
-
-
 void __fastcall TForm1::MaskEdit1Change(TObject *Sender)
 {
 	MaskEdit1->MaxLength = 128;
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
 {
 	MaskEdit2->MaxLength = 128;
