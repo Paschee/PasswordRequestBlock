@@ -108,15 +108,15 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 
 		/*Compare input with safed data*/
 		if (PasswordGet == ThePassword)
-			{
-				Memo1->Lines->Append("Log in was succesful, enjoy your session");
-				ShowMessage("Press OK to enter yout computer.");
-				exit(1);
-			}
-			else
-			{
-				Memo1->Lines->Append("Log in was not succesful.");
-			}
+		{
+			Memo1->Lines->Append("Log in was succesful, enjoy your session");
+			ShowMessage("Press OK to enter yout computer.");
+			exit(1);
+		}
+		else
+		{
+			Memo1->Lines->Append("Log in was not succesful.");
+		}
 	}
 	else
 	{
