@@ -41,7 +41,8 @@ Tag 3: • Speicherung geändert
        
 Tag 4: • -
 
-Tag 5: •
+Tag 5: • CreatePassword und Log in sind jetzt komplett funktionsfähig
+       •
 
 
 ```
