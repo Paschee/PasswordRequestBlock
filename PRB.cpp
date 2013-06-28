@@ -14,7 +14,7 @@ using namespace std;
 #pragma resource "*.dfm"
 TForm1 *Form1;
 
-String PasswordCreateA, PasswordCreateB, PasswordGetFromFile;
+String PasswordCreateA, PasswordGet, ThePassword;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
@@ -23,7 +23,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-
 	Form1->BorderStyle = None;
 	WindowState = wsMaximized;
 	Memo1->Text = "";
@@ -31,7 +30,6 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	MaskEdit2->Text = "••••";
 	MaskEdit3->Text = "••••";
 	Application->MainFormOnTaskBar = false;
-
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
@@ -51,18 +49,12 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
 	/*Shutdown*/
-	system("system -s");
+	system("system -s -5");
 	Memo1->Lines->Append(">> Windows will shudtown in 5 seconds.");
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-	/*Master password*/
-	if (MaskEdit1->Text == "169" && MaskEdit2->Text == "169")
-	{
-    	exit(0);
-	}
-
 	/*Characterdetection*/
 	if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
 	{
@@ -75,7 +67,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		PasswordCreateA = MaskEdit1->Text;
 		TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
 		Speichern->WriteLine(MaskEdit1->Text);
-		Speichern->Close();
+		Speichern->Free();
 
 		/*File attributes*/
 		FileSetAttr("Password.txt", faHidden);
@@ -102,18 +94,33 @@ void __fastcall TForm1::Edit3Change(TObject *Sender)
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
 	/*Log in*/
-	PasswordGetFromFile = MaskEdit3->Text;
+    ThePassword = MaskEdit3->Text;
 
-	if (PasswordGetFromFile.IsEmpty())
+	if (ThePassword.IsEmpty())
 	{
-		Memo1->Lines->Append("You've not entered any password.");
-		Memo1->Lines->Append(">> Please try again.");
-		ShowMessage("Error ! \n\n  • Empty Field");
+		Memo1->Lines->Append("No insert, please try again.");
+		ShowMessage("An error has occurred.");
 	}
-	/* Hier kommt was rein*/
 
-	exit(1);
-}
+	if (ThePassword.Length() > 0)
+	{
+		Memo1->Lines->Append("Input gets checked ...");
+		TTextReader *Open = new TStreamReader("Password.txt");
+		PasswordGet = Open->ReadLine();
+		Open->Free();
+
+		if (PasswordGet == ThePassword)
+			{
+				Memo1->Lines->Append("Log in was succesful, enjoy your session");
+				ShowMessage("Press OK to enter yout computer.");
+				exit(1);
+			}
+			else
+			{
+				Memo1->Lines->Append("Log in was not succesful.");
+			}
+		}
+	}
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Memo1Change(TObject *Sender)
 {
@@ -130,5 +137,15 @@ void __fastcall TForm1::MaskEdit1Change(TObject *Sender)
 void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
 {
 	MaskEdit2->MaxLength = 128;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::MaskEdit3Change(TObject *Sender)
+{
+	if (MaskEdit3->OnMouseActivate)
+	{
+    	MaskEdit3->Text = "";
+	}
 }
 //---------------------------------------------------------------------------
