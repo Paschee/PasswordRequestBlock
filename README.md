@@ -39,7 +39,9 @@ Tag 3: • Speicherung geändert
        • Log in gestartet
        • Passwort konnte nicht überschrieben werden *fixed
        
-Tag 4: •
+Tag 4: • -
+
+Tag 5: •
 
 
 ```
