@@ -139,13 +139,3 @@ void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
 	MaskEdit2->MaxLength = 128;
 }
 //---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::MaskEdit3Change(TObject *Sender)
-{
-	if (MaskEdit3->OnMouseActivate)
-	{
-    	MaskEdit3->Text = "";
-	}
-}
-//---------------------------------------------------------------------------
