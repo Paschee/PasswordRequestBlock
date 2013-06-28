@@ -26,9 +26,9 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	Form1->BorderStyle = None;
 	WindowState = wsMaximized;
 	Memo1->Text = "";
-	MaskEdit1->Text = "••••";
-	MaskEdit2->Text = "••••";
-	MaskEdit3->Text = "••••";
+	MaskEdit1->Text = "";
+	MaskEdit2->Text = "";
+	MaskEdit3->Text = "";
 	Application->MainFormOnTaskBar = false;
 }
 //---------------------------------------------------------------------------
