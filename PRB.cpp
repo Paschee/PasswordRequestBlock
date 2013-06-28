@@ -42,10 +42,8 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 	/*Reboot*/
 	system("system -r -5");
 	Memo1->Lines->Append(">> Windows will reboot in 5 seconds.");
-
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
 	/*Shutdown*/
@@ -91,7 +89,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
 	/*Log in*/
-    ThePassword = MaskEdit3->Text;
+	ThePassword = MaskEdit3->Text;
 
 	/*Input Error*/
 	if (ThePassword.IsEmpty())
@@ -100,6 +98,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 		ShowMessage("An error has occurred.");
 	}
 
+	/*Check input*/
 	if (ThePassword.Length() >= 4)
 	{
 		Memo1->Lines->Append("Input gets checked ...");
@@ -107,6 +106,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 		PasswordGet = Open->ReadLine();
 		Open->Free();
 
+		/*Compare input with safed data*/
 		if (PasswordGet == ThePassword)
 			{
 				Memo1->Lines->Append("Log in was succesful, enjoy your session");
@@ -120,15 +120,13 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	}
 	else
 	{
-        	Memo1->Lines->Append("Illegal Input.");
-    	}
+		Memo1->Lines->Append("Illegal Input.");
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Memo1Change(TObject *Sender)
 {
-	/*Later*/
 	Memo1->ReadOnly = true;
-
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::MaskEdit1Change(TObject *Sender)
