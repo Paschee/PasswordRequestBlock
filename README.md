@@ -43,7 +43,5 @@ Tag 4: • -
 
 Tag 5: • CreatePassword und Log in sind jetzt komplett funktionsfähig
        • Bugs Bugs Bugs - Fixed
-       • 
-
 
 ```
