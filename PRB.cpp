@@ -120,8 +120,8 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	}
 	else
 	{
-        Memo1->Lines->Append("Illegal Input.");
-    }
+        	Memo1->Lines->Append("Illegal Input.");
+    	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Memo1Change(TObject *Sender)
