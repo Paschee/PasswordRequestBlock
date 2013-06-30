@@ -48,5 +48,6 @@ Tag 6: • Strukturen geändert
 
 Tag 7: • Musste was am Passwort ändern, sonst hätte man einfach ein neues erstellen und eintreten können.
        • Altes Passwort wird beim erstellen eines neuem jetzt abgefragt (Wie konnte ich daran nicht denken ...)
+       • Und immer mehr probleme ...
 
 ```
