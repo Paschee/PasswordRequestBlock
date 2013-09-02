@@ -55,9 +55,36 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-	if (FileExists("Password.txt"))  // Damit neu anfangen !!!
+	if (FileExists("Password.txt"))
 	{
 		/*Characterdetection*/
+		if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit4->Text.Length() >= 4 && MaskEdit4->Text.Length() <= 128 && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
+		{
+			TTextReader *Open = new TStreamReader("Password.txt");
+			PasswordGet = Open->ReadLine();
+			Open->Free();
+
+			if (PasswordGet == MaskEdit4->Text)
+			{
+				PasswordCreateA = MaskEdit4->Text;
+				TTextWriter *Speichern = new TStreamWriter("Password.txt", false);
+				Speichern->WriteLine(MaskEdit1->Text);
+				Speichern->Free();
+
+				Memo1->Lines->Append("Change was Succesful.");
+			}
+			else
+			{
+				Memo1->Lines->Append("An Error has occured, please try again.");
+            }
+		}
+		else
+		{
+			Memo1->Lines->Append("An Error has occured, please try again.");
+		}
+	 }
+	 else
+	 {
 		if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
 		{
 			/*Create new Password File*/
@@ -67,7 +94,6 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 			Speichern->Free();
 
 			/*File attributes*/
-			// FileSetAttr("Password.txt", faHidden);
 			// FileSetAttr("Password.txt", faHidden);
 
 			/*Pseudo cmd positive result*/
@@ -80,26 +106,15 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 			/*Pseudo cmd negative result*/
 			Memo1->Lines->Append("Creating failed.");
 			Memo1->Lines->Append(">> Click OK and repeat.");
-			ShowMessage("Creating the Password has failed - What was the problem ?\n\n  • Less than 4 characters\n  • More than 128 characters\n  • The 2nd Password isn't the same as the 1st\n  • Look out for big and small characters ");
+			// ShowMessage("Creating the Password has failed - What was the problem ?\n\n  • Less than 4 characters\n  • More than 128 characters\n  • The 2nd Password isn't the same as the 1st\n  • Look out for big and small characters ");
 		}
-
-		/*ReadPassword
-		if ("Password.txt" != 0)
-		{
-			TTextReader *Open = new TStreamReader("Password.txt");
-			PasswordGet = Open->ReadLine();
-			Open->Free();
-		}
-
-		if (MaskEdit1->Text == MaskEdit2->Text && MaskEdit4->Text == PasswordGet && MaskEdit1->Text.Length() >= 4 && MaskEdit2->Text.Length() >= 4 && MaskEdit1->Text.Length() <= 128 && MaskEdit2->Text.Length() <= 128)
-		{
-			Memo1->Lines->Append("Hallo");
-		}
-		*/
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
+	int i = 1;
+
     /*Log in*/
 	ThePassword = MaskEdit3->Text;
 
@@ -111,7 +126,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	}
 
 	/*Check input*/
-	if (ThePassword.Length() >= 4)
+	if (ThePassword.Length() >= 4 && FileExists("Password.txt"))
 	{
 		Memo1->Lines->Append("Input gets checked ...");
 		TTextReader *Open = new TStreamReader("Password.txt");
@@ -122,8 +137,8 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 		if (PasswordGet == ThePassword)
 			{
 				Memo1->Lines->Append("Log in was succesful, enjoy your session");
-				ShowMessage("Press OK to enter yout computer.");
-				exit(1);
+				ShowMessage("Press OK to enter your computer.");
+				exit(0);
 			}
 			else
 			{
@@ -132,7 +147,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	}
 	else
 	{
-		Memo1->Lines->Append("Illegal Input.");
+		Memo1->Lines->Append("Illegal Input or No Password created yet.");
 	}
 }
 //---------------------------------------------------------------------------
