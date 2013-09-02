@@ -9,7 +9,7 @@
 "OS"
 
 - using.Microsoft.Win32 -> C ? Wirds so auch in C++ geben | GIBT ES, WURDE BEREITS GENUTZT
-- Lock screen | BORDERSTYLE = NONE, WSMAXIMIZED
+- Lock screen | BORDERSTYLE = NONE, WSMAXIMIZED | DONE
 - Windows herunterfahren bzw. re-booten (Ist in C# vorhanden), wirds in C++ sicher auch geben | DONE
 - Lock : Tab, Alt, Del, F4 | "X"
 - Hide : SetFormBorderStyle = None , ShowInTaskbar = false , weitere ... | ZUM TEIL DONE
