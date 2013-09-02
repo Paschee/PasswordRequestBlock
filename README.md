@@ -49,16 +49,21 @@ Tag 6: • Strukturen geändert
 Tag 7: • Musste was am Passwort ändern, sonst hätte man einfach ein neues erstellen und eintreten können.
        • Altes Passwort wird beim erstellen eines neuem jetzt abgefragt (Wie konnte ich daran nicht denken ...)
        • Und immer mehr probleme ...
----
-Leider ist in den letzten Wochen nichts mehr passiert, was mit den Prüfungen aber auch mit meiner Faulheit zu tun hat,
-dass möchte ich hier nicht unterschlagen. Der aufhänger waren die an Tag 7 entstandenen Probleme, die mich gezwungen
-haben das programm neu zu strukturieren, wozu ich nun leider nicht gekommen bin - Bis jetzt.
-Ich habe endlich wieder einen kleinen Zeitraum in dem ich stressfrei coden kann und den werde ich gut nutzen
-um das programm wie versprochen als "Crack-Experiment" freizugeben.
----
+       
+       Leider ist in den letzten Wochen nichts mehr passiert, was mit den Prüfungen aber 
+       auch mit meiner Faulheit zu tun hat, dass möchte ich hier nicht unterschlagen. 
+       Der aufhänger waren die an Tag 7 entstandenen Probleme, die mich gezwungen
+       haben das programm neu zu strukturieren, wozu ich nun leider nicht gekommen bin - Bis jetzt.
+       Ich habe endlich wieder einen kleinen Zeitraum in dem ich stressfrei coden kann und den werde ich gut nutzen
+       um das programm wie versprochen als "Crack-Experiment" freizugeben.
 
-Update 1.1: • Wideraufnahme des Projekts 
-            • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
-              jetzt gehts an die "blockierenden" Aspekte des Programms
+```
+
+```bash
+
+
+Tag 1.1: • Wideraufnahme des Projekts 
+         • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
+           jetzt gehts an die "blockierenden" Aspekte des Programms
 
 ```
