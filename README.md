@@ -58,5 +58,7 @@ um das programm wie versprochen als "Crack-Experiment" freizugeben.
 ---
 
 Update 1.1: • Wideraufnahme des Projekts 
+            • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
+              jetzt gehts an die "blockierenden" Aspekte des Programms
 
 ```
