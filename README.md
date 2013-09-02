@@ -63,5 +63,7 @@ Tag 7: • Musste was am Passwort ändern, sonst hätte man einfach ein neues er
 Tag 1.1: • Wideraufnahme des Projekts 
          • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
            jetzt gehts an die "blockierenden" Aspekte des Programms
+           
+![alt tag](http://http://gyazo.com/6007f223d4f12aa3617dad0199dd6d28/to/img.png)
 
 ```
