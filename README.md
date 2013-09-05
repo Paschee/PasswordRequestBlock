@@ -60,9 +60,14 @@ Tag 7: • Musste was am Passwort ändern, sonst hätte man einfach ein neues er
 ```
 
 ```bash
-Tag 1.1: • Wideraufnahme des Projekts 
-         • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
-           jetzt gehts an die "blockierenden" Aspekte des Programms
+Update 1.1: • Wideraufnahme des Projekts 
+            • Das Ursprüngliche problem wurde in 5 Minuten gelöst (Ja, kein witz) und 
+              jetzt gehts an die "blockierenden" Aspekte des Programms
 
+Update 1.2: • Hab jetzt angefangen mich auf SetWindowsHookEx und CallNextHookEx zu stürzen
+            • das erkennen der tasten funktioniert (war jetzt aber auch nichts großes)
+            • das wäre jetzt auch die letzte große hürde, danach wär das programm für seine
+              erste einsatzphase bereit.
+            • wegen der DLL geschichte muss ich dann nochmal gucken.
 
 ```
