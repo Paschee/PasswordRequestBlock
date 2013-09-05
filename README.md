@@ -67,7 +67,8 @@ Update 1.1: • Wideraufnahme des Projekts
 Update 1.2: • Hab jetzt angefangen mich auf SetWindowsHookEx und CallNextHookEx zu stürzen
             • das erkennen der tasten funktioniert (war jetzt aber auch nichts großes)
             • das wäre jetzt auch die letzte große hürde, danach wär das programm für seine
-              erste einsatzphase bereit.
-            • wegen der DLL geschichte muss ich dann nochmal gucken.
+              erste einsatzphase bereit
+            • wegen der DLL geschichte muss ich dann nochmal gucken
+            • Tricky könnte werden, dass das meiste davon für 32 bit gedacht ist
 
 ```
