@@ -69,6 +69,6 @@ Update 1.2: • Hab jetzt angefangen mich auf SetWindowsHookEx und CallNextHookE
             • das wäre jetzt auch die letzte große hürde, danach wär das programm für seine
               erste einsatzphase bereit
             • wegen der DLL geschichte muss ich dann nochmal gucken
-            • Tricky könnte werden, dass das meiste davon für 32 bit gedacht ist
+            • Tricky könnte werden, dass das meiste davon für 32-bit gedacht ist
 
 ```
