@@ -5,10 +5,15 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <Registry.hpp>
 #pragma hdrstop
 using namespace std;
 
 #include "PRB.h"
+
+// Deklarationen Jeff
+AnsiString getProgramDir();
+void RegisterAPP(AnsiString ExePath);
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -23,6 +28,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
+	Form1->KeyPreview = true; // Keyhook
 	Form1->BorderStyle = None;
 	WindowState = wsMaximized;
 	Memo1->Text = "";
@@ -55,6 +61,7 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
+	// Password = Hallo
 	if (FileExists("Password.txt"))
 	{
 		/*Characterdetection*/
@@ -72,6 +79,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 				Speichern->Free();
 
 				Memo1->Lines->Append("Change was Succesful.");
+				Memo1->Lines->Append("You can now try to log in.");
 			}
 			else
 			{
@@ -94,7 +102,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 			Speichern->Free();
 
 			/*File attributes*/
-			// FileSetAttr("Password.txt", faHidden);
+			//FileSetAttr("C:\Password.txt", faHidden);
 
 			/*Pseudo cmd positive result*/
 			Memo1->Lines->Append("File was safed and created succesfully");
@@ -105,7 +113,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		{
 			/*Pseudo cmd negative result*/
 			Memo1->Lines->Append("Creating failed.");
-			Memo1->Lines->Append(">> Click OK and repeat.");
+			Memo1->Lines->Append(">> Please repeat.");
 			// ShowMessage("Creating the Password has failed - What was the problem ?\n\n  • Less than 4 characters\n  • More than 128 characters\n  • The 2nd Password isn't the same as the 1st\n  • Look out for big and small characters ");
 		}
 	}
@@ -113,8 +121,6 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-	int i = 1;
-
     /*Log in*/
 	ThePassword = MaskEdit3->Text;
 
@@ -169,5 +175,65 @@ void __fastcall TForm1::MaskEdit2Change(TObject *Sender)
 void __fastcall TForm1::MaskEdit3Change(TObject *Sender)
 {
 	MaskEdit3->MaxLength = 128;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Key(TObject *Sender, WORD &Key, TShiftState Shift)
+{
+	if (Key == VK_LWIN) // Linke Win taste
+	{
+        exit(0);
+		// Ignorieren
+	}
+}
+//---------------------------------------------------------------------------
+AnsiString getProgramDir()
+{
+	TRegistry *reg = new TRegistry(KEY_READ);
+	//char *res = (char*)malloc(256);
+	AnsiString res;
+
+	try
+	{
+		reg->RootKey = HKEY_LOCAL_MACHINE;
+		reg->OpenKey("Software\\Microsoft\\Windows\\CurrentVersion\\", false);
+		res = reg->ReadString("ProgramFilesDir");
+		reg->Free();
+	}
+	catch(...)
+	{
+		throw ("Get Program files directory didn't work.");
+	}
+	return res + AnsiString("\\");
+}
+//---------------------------------------------------------------------------
+void RegisterAPP(AnsiString ExePath)
+{
+	TRegistry *reg = new TRegistry(KEY_WRITE);
+
+	try
+	{
+		reg->RootKey = HKEY_CURRENT_USER;
+		if ( reg->OpenKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run\\", true) )
+			reg->WriteString("PRB", ExePath);
+		reg->CloseKey();
+		reg->Free();
+		Form1->Memo1->Lines->Append("Registry worked fine.");
+		// MessageDlg("Alles lief gut. Du bist registriert :-D.", mtInformation, TMsgDlgButtons()<<mbOK, 0);
+	}
+	catch(...)
+	{
+		throw("A problem has occured. Please try again.");
+    }
+}
+//--------------------------------------------------------------------------
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+	RegisterAPP(ExtractFilePath(Application->ExeName));
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button7Click(TObject *Sender)
+{
+	ShowMessage("Programmverzeichnis : " + AnsiString( getProgramDir() ));
 }
 //---------------------------------------------------------------------------
